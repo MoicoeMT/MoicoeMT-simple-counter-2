@@ -9,4 +9,27 @@ import "../styles/index.css";
 import Home from "./component/home.jsx";
 
 //render your react application
-ReactDOM.render(<Home />, document.querySelector("#app"));
+
+let counter = 0
+
+setInterval(() => {
+    counter += 1;
+    let primerNumero = Math.floor((counter / 1) % 10);
+    let segundoNumero = Math.floor((counter / 10) % 10);
+    let tercerNumero = Math.floor((counter / 100) % 10);
+    let cuartoNumero = Math.floor((counter / 1000) % 10);
+    let quintoNumero = Math.floor((counter / 10000) % 10);
+    let sextoNumero = Math.floor((counter / 100000) % 10);
+    ReactDOM.render(
+        <div id="containernums" className="container text-dark ">
+            <i id="icon" class="fa-regular fa-clock"></i>
+            {sextoNumero}
+            {quintoNumero}
+            <h1>:</h1>
+            {cuartoNumero}
+            {tercerNumero}
+            <h1>:</h1>
+            {segundoNumero}
+            {primerNumero}
+        </div>, document.querySelector("#app"));
+}, 1000);
